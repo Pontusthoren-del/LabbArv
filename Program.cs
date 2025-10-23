@@ -95,13 +95,23 @@
             Console.Write("Doors: ");
             int doors = int.Parse(Console.ReadLine());
             Console.Write("Gasoline(true/false): ");
-            bool gasoline = bool.Parse(Console.ReadLine());
+            bool gasoline;
+            while (!bool.TryParse(Console.ReadLine(), out gasoline))
+            {
+                Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
+                Console.Write("Gasoline: (true/false) ");
+            }
             Console.Write("Has Sunroof(true/false): ");
-            bool sunroof = bool.Parse(Console.ReadLine());
+            bool sunroof;
+            while (!bool.TryParse(Console.ReadLine(), out sunroof))
+            {
+                Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
+                Console.Write("Has sidecar: (true/false): ");
+            }
 
             Car customCar = new Car(brand, model, maxSpeed, doors, gasoline, sunroof);
             customCar.StartVehicle();
-            customCar.StartEnginge();
+            customCar.StartEngine();
             customCar.StopVehicle();
             customCar.DisplayInfo();
 
@@ -112,23 +122,31 @@
         public static void CreateCustomMotorcycle()
         {
             Console.Clear();
-            Console.WriteLine("Create a new custom Car with own attributes.");
+            Console.WriteLine("Create a new custom Motorcycle with own attributes.");
             Console.Write("Brand: ");
             string brand = Console.ReadLine();
             Console.Write("Model: ");
             string model = Console.ReadLine();
             Console.Write("MaxSpeed (km/h): ");
             int maxSpeed = int.Parse(Console.ReadLine());
-            Console.Write("Doors: ");
-            int doors = int.Parse(Console.ReadLine());
-            Console.Write("Gasoline(true/false): ");
-            bool gasoline = bool.Parse(Console.ReadLine());
-            Console.Write("Has sidecar: (true/false): ");
-            bool sidecar = bool.Parse(Console.ReadLine());
+            Console.Write("Gasoline: (true/false) ");
+            bool gasoline;
+            while (!bool.TryParse(Console.ReadLine(), out gasoline))
+            {
+                Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
+                Console.Write("Gasoline: (true/false) ");
+            }
+            Console.Write("Has sidecar: (true/false) ");
+            bool sidecar;
+            while (!bool.TryParse(Console.ReadLine(), out sidecar))
+            {
+                Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
+                Console.Write("Has sidecar: (true/false): ");
+            }
 
-            Motorcycle customMotorcycle = new Motorcycle(brand, model, maxSpeed, doors, gasoline, sidecar);
+            Motorcycle customMotorcycle = new Motorcycle(brand, model, maxSpeed, gasoline, sidecar);
             customMotorcycle.StartVehicle();
-            customMotorcycle.StartEnginge();
+            customMotorcycle.StartEngine();
             customMotorcycle.StopVehicle();
             customMotorcycle.DisplayInfo();
 
@@ -139,7 +157,7 @@
         public static void CreateCustomTruck()
         {
             Console.Clear();
-            Console.WriteLine("Create a new custom Car with own attributes.");
+            Console.WriteLine("Create a new custom Truck with own attributes.");
             Console.Write("Brand: ");
             string brand = Console.ReadLine();
             Console.Write("Model: ");
@@ -149,7 +167,7 @@
             Console.Write("Doors: ");
             int doors = int.Parse(Console.ReadLine());
             Console.Write("Gasoline(true/false): ");
-            bool gasoline = bool.Parse(Console.ReadLine());
+            bool gasoline;
             while (!bool.TryParse(Console.ReadLine(), out gasoline))
             {
                 Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
@@ -160,7 +178,7 @@
 
             Truck customTruck = new Truck(brand, model, maxSpeed, doors, gasoline, loadCapacity);
             customTruck.StartVehicle();
-            customTruck.StartEnginge();
+            customTruck.StartEngine();
             customTruck.StopVehicle();
             customTruck.DisplayInfo();
 
@@ -172,7 +190,7 @@
         {
             Truck myTruck = new Truck();
             myTruck.StartVehicle();
-            myTruck.StartEnginge();
+            myTruck.StartEngine();
             myTruck.StopVehicle();
             myTruck.DisplayInfo();
             Console.WriteLine("Tryck Enter för att återkomma till menyn");
@@ -183,7 +201,7 @@
         {
             Car myCar = new Car();
             myCar.StartVehicle();
-            myCar.StartEnginge();
+            myCar.StartEngine();
             myCar.StopVehicle();
             myCar.DisplayInfo();
             Console.WriteLine("Tryck Enter för att återkomma till menyn");
@@ -192,11 +210,11 @@
         }
         public static void MyMotorcycle()
         {
-            Motorcycle myCar = new Motorcycle();
-            myCar.StartVehicle();
-            myCar.StartEnginge();
-            myCar.StopVehicle();
-            myCar.DisplayInfo();
+            Motorcycle myMotorcycle = new Motorcycle();
+            myMotorcycle.StartVehicle();
+            myMotorcycle.StartEngine();
+            myMotorcycle.StopVehicle();
+            myMotorcycle.DisplayInfo();
             Console.WriteLine("Tryck Enter för att återkomma till menyn");
             Console.ReadLine();
             RunMainMenu();

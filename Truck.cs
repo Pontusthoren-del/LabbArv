@@ -23,9 +23,9 @@ namespace LabbArv
         {
             LoadCapacity = loadcapacity;
         }
-        public override void StartEnginge()
+        public override void StartEngine()
         {
-            Console.WriteLine($"{Brand} sounds VROOOOOOOOOOWM.");
+            Console.WriteLine($"{Brand} sounds BRRRRUUUUUUUUUUWWWM.");
         }
         public override void DisplayInfo()
         {

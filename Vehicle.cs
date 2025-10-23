@@ -33,15 +33,15 @@ namespace LabbArv
 
         public void StartVehicle()
         {
-            Console.WriteLine($"{Brand} {Model} starts the enginge.");
+            Console.WriteLine($"{Brand} {Model} starts the engine.");
         }
-        public virtual void StartEnginge()
+        public virtual void StartEngine()
         {
             Console.WriteLine($"Vehicle sounds VRRROOOOOOOWM.");
         }
         public void StopVehicle()
         {
-            Console.WriteLine($"{Brand} {Model} shuts off the enginge.");
+            Console.WriteLine($"{Brand} {Model} shuts off the engine.");
         }
         public virtual void DisplayInfo()
         {

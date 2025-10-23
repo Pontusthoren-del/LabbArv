@@ -19,11 +19,11 @@ namespace LabbArv
             HasSideCar = false;
         }
 
-        public Motorcycle(string brand, string model, int maxspeed, int doors, bool gasoline,bool hassidecar) : base(brand, model, maxspeed, doors, gasoline)
+        public Motorcycle(string brand, string model, int maxspeed, bool gasoline,bool hassidecar) : base(brand, model, maxspeed,0, gasoline)
         {
             HasSideCar = hassidecar;
         }
-        public override void StartEnginge()
+        public override void StartEngine()
         {
             Console.WriteLine($"{Brand} sounds YAAAAAAAHAAAMAAAAHAAAAAA.");
         }
