@@ -12,7 +12,6 @@
             bool loggedin = true;
             while (loggedin)
             {
-
                 string input = Console.ReadLine();
                 int choice;
                 if (int.TryParse(input, out choice))
@@ -23,10 +22,16 @@
                             MyCar();
                             break;
                         case 2:
-                            ShutOff();
+                            MyMotorcycle();
                             break;
                         case 3:
-                            //Buss
+                            MyTruck();
+                            break;
+                        case 4:
+                            CreateCustomVehicle();
+                            break;
+                        case 6:
+                            ShutOff();
                             break;
                         default:
                             break;
@@ -38,29 +43,167 @@
         public static void RunMainMenu()
         {
             Console.Clear();
-            Console.WriteLine("Välkommen till våran fordonstjänst!");
-            Console.WriteLine("Du får nu välja mellan några alternativ nu.");
-            Console.WriteLine("Du kommer få lyssna och se info om de olika fordonen");
-            Console.WriteLine("1) Bil.");
-            Console.WriteLine("2) Avsluta.");
+            Console.WriteLine("Welcome to our vehicle service!");
+            Console.WriteLine("You can now choose from the following options:");
+            Console.WriteLine("You will get to listen to and see information about the different vehicles.");
+            Console.WriteLine("1) Car.");
+            Console.WriteLine("2) Motorcycle.");
+            Console.WriteLine("3) Truck.");
+            Console.WriteLine("4) Create custom vehicle.");
+            Console.WriteLine("6) End program.");
+        }
+        public static void CreateCustomVehicle()
+        {
+            Console.WriteLine("You want to create a custom vehicle.");
+            Console.WriteLine("\tChoose below.");
+            Console.WriteLine("1) Car.");
+            Console.WriteLine("2) Motorcycle.");
+            Console.WriteLine("3) Truck.");
+            Console.WriteLine("4) Return to mainmenu.");
+            string input = Console.ReadLine();
+            int choice;
+            if (int.TryParse(input, out choice))
+            {
+                switch (choice)
+                {
+                    case 1:
+
+                        CreateCustomCar();
+                        break;
+                    case 2:
+                        CreateCustomMotorcycle();
+                        break;
+                    case 3:
+                        CreateCustomTruck();
+                        break;
+                    case 4:
+                        RunMainMenu();
+                        break;
+                }
+            }
+        }
+        public static void CreateCustomCar()
+        {
+            Console.Clear();
+            Console.WriteLine("Create a new custom Car with own attributes.");
+            Console.Write("Brand: ");
+            string brand = Console.ReadLine();
+            Console.Write("Model: ");
+            string model = Console.ReadLine();
+            Console.Write("MaxSpeed (km/h): ");
+            int maxSpeed = int.Parse(Console.ReadLine());
+            Console.Write("Doors: ");
+            int doors = int.Parse(Console.ReadLine());
+            Console.Write("Gasoline(true/false): ");
+            bool gasoline = bool.Parse(Console.ReadLine());
+            Console.Write("Has Sunroof(true/false): ");
+            bool sunroof = bool.Parse(Console.ReadLine());
+
+            Car customCar = new Car(brand, model, maxSpeed, doors, gasoline, sunroof);
+            customCar.StartVehicle();
+            customCar.StartEnginge();
+            customCar.StopVehicle();
+            customCar.DisplayInfo();
+
+            Console.WriteLine("Press Enter to return.");
+            Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void CreateCustomMotorcycle()
+        {
+            Console.Clear();
+            Console.WriteLine("Create a new custom Car with own attributes.");
+            Console.Write("Brand: ");
+            string brand = Console.ReadLine();
+            Console.Write("Model: ");
+            string model = Console.ReadLine();
+            Console.Write("MaxSpeed (km/h): ");
+            int maxSpeed = int.Parse(Console.ReadLine());
+            Console.Write("Doors: ");
+            int doors = int.Parse(Console.ReadLine());
+            Console.Write("Gasoline(true/false): ");
+            bool gasoline = bool.Parse(Console.ReadLine());
+            Console.Write("Has sidecar: (true/false): ");
+            bool sidecar = bool.Parse(Console.ReadLine());
+
+            Motorcycle customMotorcycle = new Motorcycle(brand, model, maxSpeed, doors, gasoline, sidecar);
+            customMotorcycle.StartVehicle();
+            customMotorcycle.StartEnginge();
+            customMotorcycle.StopVehicle();
+            customMotorcycle.DisplayInfo();
+
+            Console.WriteLine("Press Enter to return.");
+            Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void CreateCustomTruck()
+        {
+            Console.Clear();
+            Console.WriteLine("Create a new custom Car with own attributes.");
+            Console.Write("Brand: ");
+            string brand = Console.ReadLine();
+            Console.Write("Model: ");
+            string model = Console.ReadLine();
+            Console.Write("MaxSpeed (km/h): ");
+            int maxSpeed = int.Parse(Console.ReadLine());
+            Console.Write("Doors: ");
+            int doors = int.Parse(Console.ReadLine());
+            Console.Write("Gasoline(true/false): ");
+            bool gasoline = bool.Parse(Console.ReadLine());
+            while (!bool.TryParse(Console.ReadLine(), out gasoline))
+            {
+                Console.WriteLine("Ogiltlig input! Skriv \"true\" eller \"false\".");
+                Console.Write("Gasoline(true/false): ");
+            }
+            Console.Write("Load Capacity: ");
+            int loadCapacity = int.Parse(Console.ReadLine());
+
+            Truck customTruck = new Truck(brand, model, maxSpeed, doors, gasoline, loadCapacity);
+            customTruck.StartVehicle();
+            customTruck.StartEnginge();
+            customTruck.StopVehicle();
+            customTruck.DisplayInfo();
+
+            Console.WriteLine("Press Enter to return.");
+            Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void MyTruck()
+        {
+            Truck myTruck = new Truck();
+            myTruck.StartVehicle();
+            myTruck.StartEnginge();
+            myTruck.StopVehicle();
+            myTruck.DisplayInfo();
+            Console.WriteLine("Tryck Enter för att återkomma till menyn");
+            Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void MyCar()
+        {
+            Car myCar = new Car();
+            myCar.StartVehicle();
+            myCar.StartEnginge();
+            myCar.StopVehicle();
+            myCar.DisplayInfo();
+            Console.WriteLine("Tryck Enter för att återkomma till menyn");
+            Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void MyMotorcycle()
+        {
+            Motorcycle myCar = new Motorcycle();
+            myCar.StartVehicle();
+            myCar.StartEnginge();
+            myCar.StopVehicle();
+            myCar.DisplayInfo();
+            Console.WriteLine("Tryck Enter för att återkomma till menyn");
+            Console.ReadLine();
+            RunMainMenu();
         }
         public static void ShutOff()
         {
             Environment.Exit(0);
         }
-        public static void MyCar()
-        {
-            Vehicle myCar = new Vehicle("Seat", "Leon", 180, 4, true);
-            myCar.StartVehicle();
-            myCar.startEngine();
-            myCar.StopVehicle();
-            myCar.DisplayInfo();
-            Console.WriteLine("Tryck Enter för att återkomma till menyn");
-            Console.ReadLine();
-            
-            RunMainMenu();
-
-        }
-
     }
 }

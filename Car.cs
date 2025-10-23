@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace LabbArv
 {
-    internal class Motorcycle:Vehicle
+    internal class Car:Vehicle
     {
-        public bool HasSideCar { get; set; }
-        public Motorcycle() : base()
+        public bool HasSunroof { get; set; }
+        public Car() : base()
         {
-            Brand = "Yamaha";
-            Model = "MT-07";
-            MaxSpeed = 220;
-            Doors = 0;
+            Brand = "Volvo";
+            Model = "XC60";
+            MaxSpeed = 210;
+            Doors = 5;
             Gasoline = true;
-            HasSideCar = false;
+            HasSunroof = false;
         }
 
-        public Motorcycle(string brand, string model, int maxspeed, int doors, bool gasoline,bool hassidecar) : base(brand, model, maxspeed, doors, gasoline)
+        public Car(string brand, string model, int maxspeed, int doors, bool gasoline, bool hassunroof) : base(brand, model, maxspeed, doors, gasoline)
         {
-            HasSideCar = hassidecar;
+            HasSunroof = hassunroof;
         }
         public override void StartEnginge()
         {
-            Console.WriteLine($"{Brand} sounds YAAAAAAAHAAAMAAAAHAAAAAA.");
+            Console.WriteLine($"{Brand} sounds VROOOOOOOOOOWM.");
         }
         public override void DisplayInfo()
         {
@@ -33,8 +33,9 @@ namespace LabbArv
             Console.WriteLine($"Brand : {Brand}");
             Console.WriteLine($"Model : {Model}");
             Console.WriteLine($"Maxspeed : {MaxSpeed}km/h.");
+            Console.WriteLine($"Amount of doors : {Doors}");
             Console.WriteLine($"Does it use gasoline : {Gasoline}.");
-            Console.WriteLine($"Does it has a sidecar: {HasSideCar}.");
+            Console.WriteLine($"Does it have a sunroof: {HasSunroof}.");
         }
     }
 }

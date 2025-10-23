@@ -22,12 +22,20 @@ namespace LabbArv
             Doors = doors;
             Gasoline = gasoline;
         }
+        public Vehicle()
+        {
+            Brand = "Brand";
+            Model = "Model";
+            MaxSpeed = 100;
+            Doors = 4;
+            Gasoline = true;
+        }
 
         public void StartVehicle()
         {
             Console.WriteLine($"{Brand} {Model} starts the enginge.");
         }
-        public virtual void startEngine()
+        public virtual void StartEnginge()
         {
             Console.WriteLine($"Vehicle sounds VRRROOOOOOOWM.");
         }
@@ -35,7 +43,7 @@ namespace LabbArv
         {
             Console.WriteLine($"{Brand} {Model} shuts off the enginge.");
         }
-        public void DisplayInfo()
+        public virtual void DisplayInfo()
         {
             Console.WriteLine("====== Information of the Vehichle ======");
             Console.WriteLine($"Brand : {Brand}");
