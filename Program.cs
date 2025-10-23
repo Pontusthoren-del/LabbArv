@@ -199,14 +199,51 @@
         }
         public static void MyCar()
         {
-            Car myCar = new Car();
-            myCar.StartVehicle();
-            myCar.StartEngine();
-            myCar.StopVehicle();
-            myCar.DisplayInfo();
-            Console.WriteLine("Tryck Enter för att återkomma till menyn");
-            Console.ReadLine();
-            RunMainMenu();
+            Console.WriteLine("You chose Car! Which type would you like?");
+            Console.WriteLine("1) \"Normal\"Car");
+            Console.WriteLine("2) Limousin");
+            Console.WriteLine("3) Armored Vehicle");
+            Console.WriteLine("4) Return to main menu");
+            string input = Console.ReadLine();
+            int choice;
+            if (int.TryParse(input, out choice))
+            {
+                switch (choice)
+                {
+                    case 1:
+                        Car myCar = new Car();
+                        myCar.StartVehicle();
+                        myCar.StartEngine();
+                        myCar.StopVehicle();
+                        myCar.DisplayInfo();
+                        Console.WriteLine("Tryck Enter för att återkomma till menyn");
+                        Console.ReadLine();
+                        RunMainMenu();
+                        break;
+                    case 2:
+                        Limousin myLimousin = new Limousin();
+                        myLimousin.StartVehicle();
+                        myLimousin.StartEngine();
+                        myLimousin.OpenBar();
+                        myLimousin.StopVehicle();
+                        myLimousin.DisplayInfo();
+                        Console.WriteLine("Tryck Enter för att återkomma till menyn");
+                        Console.ReadLine();
+                        RunMainMenu();
+                        break;
+                    case 3:
+                        ArmoredVehicle myArmoredVehicle = new ArmoredVehicle();
+                        myArmoredVehicle.StartVehicle();
+                        myArmoredVehicle.StartEngine();
+                        myArmoredVehicle.ShotTurret();
+                        myArmoredVehicle.StopVehicle();
+                        myArmoredVehicle.DisplayInfo();
+                        Console.WriteLine("Tryck Enter för att återkomma till menyn");
+                        Console.ReadLine();
+                        RunMainMenu();
+                        break;
+                }
+            }
         }
         public static void MyMotorcycle()
         {

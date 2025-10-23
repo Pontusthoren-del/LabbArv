@@ -14,7 +14,7 @@ namespace LabbArv
             Brand = "Volvo";
             Model = "XC60";
             MaxSpeed = 210;
-            Doors = 5;
+            Doors = 4;
             Gasoline = true;
             HasSunroof = false;
         }
