@@ -8,7 +8,7 @@ namespace LabbArv
 {
     internal class ArmoredVehicle:Car
     {
-        public bool HasArmor { get; set; }
+        public bool CanShoot { get; set; }
 
         public ArmoredVehicle() : base()
         {
@@ -17,16 +17,16 @@ namespace LabbArv
             MaxSpeed = 90;
             Doors = 1;
             Gasoline = true;
-            HasArmor = true;
+            CanShoot = true;
         }
 
-        public ArmoredVehicle(string brand, string model, int maxspeed, bool gasoline, bool hasarmor) : base(brand, model, maxspeed, 0, gasoline, true)
+        public ArmoredVehicle(string brand, string model, int maxspeed, bool gasoline, bool canshoot) : base(brand, model, maxspeed, 0, gasoline, true)
         {
-            HasArmor = hasarmor;
+            CanShoot = canshoot;
         }
         public override void StartEngine()
         {
-            Console.WriteLine($"{Brand} {Model} starts its engine: GRRROOOOOMMM... heavy metal rumble!");
+            Console.WriteLine($"GRRROOOOOMMM... heavy metal rumble!");
         }
        
         public override void DisplayInfo()
@@ -36,7 +36,7 @@ namespace LabbArv
             Console.WriteLine($"Model : {Model}");
             Console.WriteLine($"Maxspeed : {MaxSpeed}km/h.");
             Console.WriteLine($"Does it use gasoline : {Gasoline}.");
-            Console.WriteLine($"Does it have armor: {HasArmor}.");
+            Console.WriteLine($"Can it shoot?: {CanShoot}.");
         }
         public void ShotTurret()
         {
@@ -44,7 +44,7 @@ namespace LabbArv
             string input = Console.ReadLine().Trim().ToLower();
             if (input == "yes")
             {
-            Console.WriteLine($"{Brand} {Model} fires the cannon: BANG! BOOM! Target destroyed! 💥");
+            Console.WriteLine($"{Brand} {Model} fires the cannon: BANG! BOOM! Target destroyed! ");
             }
             else
             {

@@ -28,6 +28,9 @@
                             MyTruck();
                             break;
                         case 4:
+                            MyAirplane();
+                            break;
+                        case 5:
                             CreateCustomVehicle();
                             break;
                         case 6:
@@ -49,7 +52,8 @@
             Console.WriteLine("1) Car.");
             Console.WriteLine("2) Motorcycle.");
             Console.WriteLine("3) Truck.");
-            Console.WriteLine("4) Create custom vehicle.");
+            Console.WriteLine("4) Airplane.");
+            Console.WriteLine("5) Create custom vehicle.");
             Console.WriteLine("6) End program.");
         }
         public static void CreateCustomVehicle()
@@ -191,6 +195,7 @@
             Truck myTruck = new Truck();
             myTruck.StartVehicle();
             myTruck.StartEngine();
+            myTruck.Unload();
             myTruck.StopVehicle();
             myTruck.DisplayInfo();
             Console.WriteLine("Tryck Enter för att återkomma till menyn");
@@ -254,6 +259,20 @@
             myMotorcycle.DisplayInfo();
             Console.WriteLine("Tryck Enter för att återkomma till menyn");
             Console.ReadLine();
+            RunMainMenu();
+        }
+        public static void MyAirplane()
+        {
+            Airplane myAirplane = new Airplane();
+            if (myAirplane.PassControl())
+            {
+            myAirplane.StartVehicle();
+            myAirplane.StartEngine();
+            myAirplane.StopVehicle();
+            myAirplane.DisplayInfo();
+            Console.WriteLine("Tryck Enter för att återkomma till menyn");
+            Console.ReadLine();
+            }
             RunMainMenu();
         }
         public static void ShutOff()

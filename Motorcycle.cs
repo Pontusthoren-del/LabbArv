@@ -25,7 +25,7 @@ namespace LabbArv
         }
         public override void StartEngine()
         {
-            Console.WriteLine($"{Brand} sounds YAAAAAAAHAAAMAAAAHAAAAAA.");
+            Console.WriteLine($"YAAAAAAAHAAAMAAAAHAAAAAA.");
         }
         public override void DisplayInfo()
         {

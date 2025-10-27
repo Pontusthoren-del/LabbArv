@@ -26,7 +26,7 @@ namespace LabbArv
         }
         public override void StartEngine()
         {
-            Console.WriteLine($"{Brand} {Model} rumbles smoothly: Hummmmm... luxury style.");
+            Console.WriteLine($"Rumbles smoothly: Hummmmm... luxury style.");
         }
         public override void DisplayInfo()
         {

@@ -25,7 +25,7 @@ namespace LabbArv
         }
         public override void StartEngine()
         {
-            Console.WriteLine($"{Brand} sounds BRRRRUUUUUUUUUUWWWM.");
+            Console.WriteLine($"BRRRRUUUUUUUUUUWWWM.");
         }
         public override void DisplayInfo()
         {
@@ -36,6 +36,22 @@ namespace LabbArv
             Console.WriteLine($"Amount of doors : {Doors}");
             Console.WriteLine($"Does it use gasoline : {Gasoline}.");
             Console.WriteLine($"Load Capacity: {LoadCapacity} tons..");
+        }
+        public void Unload()
+        {
+            Console.WriteLine($"Your truck currently has {LoadCapacity} units loaded.");
+            Console.WriteLine("Do you want to unload your load? (yes/no)");
+            string answer = Console.ReadLine()?.ToLower();
+
+            if (answer == "yes" || answer == "y")
+            {
+                Console.WriteLine($"Unloading {LoadCapacity} tons... Done! ");
+                LoadCapacity = 0;
+            }
+            else
+            {
+                Console.WriteLine("Okay, keeping the load. ");
+            }
         }
     }
 }
